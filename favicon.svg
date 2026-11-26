@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Same as the .badge logo in index.html: 160deg stripes inside a cream ring -->
+  <defs>
+    <linearGradient id="stripes" gradientUnits="userSpaceOnUse" x1="9.86" y1="-0.87" x2="22.14" y2="32.87">
+      <stop offset=".14" stop-color="#0a1416"/><stop offset=".14" stop-color="#d9d3c7"/>
+      <stop offset=".26" stop-color="#d9d3c7"/><stop offset=".26" stop-color="#0a1416"/>
+      <stop offset=".30" stop-color="#0a1416"/><stop offset=".30" stop-color="#8c8945"/>
+      <stop offset=".42" stop-color="#8c8945"/><stop offset=".42" stop-color="#0a1416"/>
+      <stop offset=".46" stop-color="#0a1416"/><stop offset=".46" stop-color="#1b8791"/>
+      <stop offset=".58" stop-color="#1b8791"/><stop offset=".58" stop-color="#0a1416"/>
+      <stop offset=".62" stop-color="#0a1416"/><stop offset=".62" stop-color="#dfa328"/>
+      <stop offset=".74" stop-color="#dfa328"/><stop offset=".74" stop-color="#0a1416"/>
+      <stop offset=".78" stop-color="#0a1416"/><stop offset=".78" stop-color="#dd523b"/>
+      <stop offset=".90" stop-color="#dd523b"/><stop offset=".90" stop-color="#0a1416"/>
+    </linearGradient>
+  </defs>
+  <circle cx="16" cy="16" r="14" fill="url(#stripes)"/>
+  <circle cx="16" cy="16" r="15" fill="none" stroke="#f2e8d3" stroke-width="2"/>
+</svg>
