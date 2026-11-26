@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Dysphunktional – Funk- en psychedelic coverband uit Lede</title>
+<title>Dysphunktional</title>
 <meta name="description" content="Funk- en psychedelic coverband uit Lede (Oost-Vlaanderen). Groovy rhythms, cosmic vibes: boek ons voor je feest, trouw, kermis of caféshow.">
 <meta name="theme-color" content="#0a2a30">
 <link rel="canonical" href="https://dysphunktional.be/">
@@ -98,7 +98,7 @@ ul{padding:0;list-style:none}
   linear-gradient(90deg,rgba(7,29,34,.8) 0,rgba(7,29,34,.4) 26%,transparent 46%),
   linear-gradient(to top,var(--ink) 0,transparent 20%)}
 .hero-text{position:relative;z-index:2;padding:var(--nav-h) 0 0 max(24px,5vw);max-width:min(40vw,600px)}
-.wordmark{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,4.5vw,4.5rem);line-height:1.02;color:var(--cream);text-shadow:0 2px 28px rgba(0,0,0,.45)}
+.wordmark{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,4.5vw,4.5rem);line-height:1.02;white-space:nowrap;color:var(--cream);text-shadow:0 2px 28px rgba(0,0,0,.45)}
 .tagline{margin-top:.9rem;font-size:clamp(1.1rem,1.55vw,1.45rem);font-weight:500;color:var(--mustard)}
 .hero-cta{display:inline-block;margin-top:1.6rem;padding:.65em 1.6em;border-radius:999px;background:var(--mustard);color:var(--ink-3);font-weight:600;text-decoration:none;transition:background .2s}
 .hero-cta:hover{background:var(--cream)}
@@ -252,8 +252,10 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
   .hero-media{position:relative;inset:auto;aspect-ratio:1100/826;background-image:url("img/hero-mobile.jpg");background-position:center}
   .hero-media::after{background:linear-gradient(to top,var(--ink) 0,transparent 30%)}
   .hero-text{padding:6px 24px 36px;max-width:none}
-  /* "Dysphunktional" is ~7em wide in Blippo: size it so it always fits between the 24px gutters */
-  .wordmark{font-size:clamp(2rem,calc((100vw - 48px)/7.1),4rem);text-shadow:none}
+  /* "Dysphunktional" is ~7em wide in Blippo: size it so it always fits between the 24px gutters. No minimum size,
+     so it keeps shrinking on very narrow screens (small phones, or phones zoomed in with a larger text setting),
+     and text-size-adjust stops the browser's own text enlargement from pushing it past the edge again */
+  .wordmark{font-size:min(4rem,calc((100vw - 48px)/7.2));-webkit-text-size-adjust:100%;text-size-adjust:100%;text-shadow:none}
 }
 @media (max-width:620px){
   .songs ol{columns:1}
@@ -303,12 +305,12 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
       <p class="lead">Funk, phunk of phonk? Eigenlijk gewoon alles met wat groove. Combineer dit met opzwepende psychedelic rock en dan krijg je Dysphunktional.</p>
       <div>
         <div class="yt-frame">
-          <button class="yt" type="button" data-id="clTw5r0nnEg" data-title="Wild Horses – Dysphunktional (live cover)" aria-label="Video afspelen: Wild Horses (live cover)">
-            <img src="https://i.ytimg.com/vi/clTw5r0nnEg/sddefault.jpg" srcset="https://i.ytimg.com/vi/clTw5r0nnEg/sddefault.jpg 640w, https://i.ytimg.com/vi/clTw5r0nnEg/maxresdefault.jpg 1280w" sizes="(max-width:860px) calc(100vw - 48px), 680px" alt="" loading="lazy" referrerpolicy="no-referrer">
+          <button class="yt" type="button" data-id="8Z391fXWnJ0" data-title="Why Did You Do It – Dysphunktional (live cover)" aria-label="Video afspelen: Why Did You Do It (live cover)">
+            <img src="https://i.ytimg.com/vi/8Z391fXWnJ0/sddefault.jpg" srcset="https://i.ytimg.com/vi/8Z391fXWnJ0/sddefault.jpg 640w, https://i.ytimg.com/vi/8Z391fXWnJ0/maxresdefault.jpg 1280w" sizes="(max-width:860px) calc(100vw - 48px), 680px" alt="" loading="lazy" referrerpolicy="no-referrer">
             <span class="play" aria-hidden="true"></span>
           </button>
         </div>
-        <p class="caption">Wild Horses (live cover)</p>
+        <p class="caption">Why Did You Do It (live cover)</p>
       </div>
     </div>
   </section>
@@ -386,12 +388,12 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
       <div class="videos">
         <div>
           <div class="yt-frame">
-            <button class="yt" type="button" data-id="8Z391fXWnJ0" data-title="Why Did You Do It – Dysphunktional (live cover)" aria-label="Video afspelen: Why Did You Do It (live cover)">
-              <img src="https://i.ytimg.com/vi/8Z391fXWnJ0/sddefault.jpg" srcset="https://i.ytimg.com/vi/8Z391fXWnJ0/sddefault.jpg 640w, https://i.ytimg.com/vi/8Z391fXWnJ0/maxresdefault.jpg 1280w" sizes="(max-width:860px) calc(100vw - 48px), 580px" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <button class="yt" type="button" data-id="clTw5r0nnEg" data-title="Wild Horses – Dysphunktional (live cover)" aria-label="Video afspelen: Wild Horses (live cover)">
+              <img src="https://i.ytimg.com/vi/clTw5r0nnEg/sddefault.jpg" srcset="https://i.ytimg.com/vi/clTw5r0nnEg/sddefault.jpg 640w, https://i.ytimg.com/vi/clTw5r0nnEg/maxresdefault.jpg 1280w" sizes="(max-width:860px) calc(100vw - 48px), 580px" alt="" loading="lazy" referrerpolicy="no-referrer">
               <span class="play" aria-hidden="true"></span>
             </button>
           </div>
-          <p class="caption">Why Did You Do It (live cover)</p>
+          <p class="caption">Wild Horses (live cover)</p>
         </div>
         <div>
           <div class="yt-frame">
@@ -503,6 +505,19 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
 
+  /* ---------- the band name never runs off the screen: the CSS already sizes it to the screen width, this only steps in
+     when a phone's own text-size setting still makes it too wide, and shrinks the font until it fits ---------- */
+  var wordmark = document.querySelector('.wordmark');
+  function fitWordmark(){
+    wordmark.style.fontSize = '';
+    for (var i = 0; i < 3 && wordmark.scrollWidth > wordmark.clientWidth; i++){
+      wordmark.style.fontSize = (parseFloat(getComputedStyle(wordmark).fontSize) * .98 * wordmark.clientWidth / wordmark.scrollWidth) + 'px';
+    }
+  }
+  fitWordmark();
+  if (document.fonts) document.fonts.ready.then(fitWordmark);
+  window.addEventListener('resize', fitWordmark);
+
   /* ---------- the nav pill of the section crossing the middle of the screen lights up ---------- */
   if ('IntersectionObserver' in window){
     var pillFor = {};
@@ -516,16 +531,44 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
     Object.keys(pillFor).forEach(function(id){ spy.observe(document.getElementById(id)); });
   }
 
-  /* ---------- video facades ---------- */
+  /* ---------- video facades: a thumbnail until clicked, then the YouTube player ---------- */
+  /* Only one video plays at a time. The players talk to the page through YouTube's postMessage protocol
+     (enablejsapi=1): whenever one starts playing, also from its own play button after a pause, the others pause. */
+  var YT_HOST = 'https://www.youtube-nocookie.com';
+  var players = [];
+  function ytSend(f, msg){ if (f.contentWindow) f.contentWindow.postMessage(JSON.stringify(msg), YT_HOST); }
+  function pauseAllBut(current){
+    players.forEach(function(p){ if (p.frame !== current) ytSend(p.frame, {event:'command', func:'pauseVideo', args:''}); });
+  }
+  window.addEventListener('message', function(e){
+    if (e.origin !== YT_HOST || typeof e.data !== 'string') return;
+    var p = players.filter(function(p){ return p.frame.contentWindow === e.source; })[0], d;
+    if (!p) return;
+    try { d = JSON.parse(e.data); } catch (err) { return; }
+    p.heard = true;
+    var state = d.event === 'onStateChange' ? d.info
+              : (d.event === 'initialDelivery' || d.event === 'infoDelivery') && d.info ? d.info.playerState : null;
+    if (state === 1) pauseAllBut(p.frame);   // 1 = playing
+  });
   document.querySelectorAll('.yt').forEach(function(btn){
     btn.addEventListener('click', function(){
-      var f = document.createElement('iframe');
+      var f = document.createElement('iframe'), p = {frame: f, heard: false};
       f.className = 'yt-iframe';
-      f.src = 'https://www.youtube-nocookie.com/embed/' + btn.dataset.id + '?autoplay=1&rel=0';
+      f.src = YT_HOST + '/embed/' + btn.dataset.id + '?autoplay=1&rel=0&enablejsapi=1'
+            + (/^https?:/.test(location.origin) ? '&origin=' + encodeURIComponent(location.origin) : '');
       f.title = btn.dataset.title;
       f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
       f.allowFullscreen = true;
       f.referrerPolicy = 'strict-origin-when-cross-origin';
+      // ask the player to report its state changes; it isn't ready right at load, so repeat until it answers
+      f.addEventListener('load', function(){
+        var tries = 0, t = setInterval(function(){
+          if (p.heard || ++tries > 40) return clearInterval(t);
+          ytSend(f, {event:'listening', id: players.indexOf(p) + 1, channel:'widget'});
+        }, 250);
+      });
+      pauseAllBut(null);
+      players.push(p);
       btn.replaceWith(f);
     });
   });
