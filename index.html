@@ -177,7 +177,7 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,4.2vw,3.5re
 
 /* booking */
 .book{background:var(--ink-2)}
-.book-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(36px,6vw,96px);align-items:start}
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,72px);align-items:start}
 .book h2{margin-bottom:clamp(20px,3vw,32px)}
 .book-lead{font-size:clamp(1.3rem,2.2vw,1.9rem);line-height:1.3;font-weight:300;max-width:24em}
 .book-text{margin-top:1rem;color:var(--muted);max-width:36em}
@@ -192,10 +192,11 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,4.2vw,3.5re
 .book-cta .alt a{color:var(--cream)}
 .songs{padding:28px 30px 26px;border:1.5px solid rgba(242,232,211,.18);border-radius:10px;background:rgba(7,29,34,.35)}
 .songs h3{font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1.1}
-.songs ol{margin-top:16px;padding:0;list-style:none;counter-reset:song}
-.songs li{counter-increment:song;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:12px 0;border-top:1px solid rgba(242,232,211,.14);font-weight:500;font-size:1.1rem}
-.songs li::before{content:counter(song,decimal-leading-zero);font-family:var(--display);font-size:1rem;color:var(--mustard)}
-.songs li small{color:var(--muted);font-weight:400;font-size:.9rem}
+/* two columns of songs (one on phones); each song: number, title, artist on the line below */
+.songs ol{margin-top:16px;padding:0;list-style:none;counter-reset:song;columns:2;column-gap:28px}
+.songs li{counter-increment:song;display:grid;grid-template-columns:1.9em 1fr;column-gap:8px;align-items:baseline;padding:10px 0;border-top:1px solid rgba(242,232,211,.14);break-inside:avoid;font-weight:500;font-size:1.05rem;line-height:1.3}
+.songs li::before{content:counter(song,decimal-leading-zero);grid-row:1 / span 2;font-family:var(--display);font-size:.95rem;color:var(--mustard)}
+.songs li small{grid-column:2;margin-top:2px;color:var(--muted);font-weight:400;font-size:.88rem}
 .songs .more{margin-top:14px;padding-top:14px;border-top:1px solid rgba(242,232,211,.14);color:var(--muted);font-size:.95rem}
 
 /* lightbox */
@@ -224,8 +225,10 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
   .member{flex-basis:calc((100% - 36px)/2)}
   .photos{column-count:2}
 }
-@media (max-width:860px){
+@media (max-width:1100px){
   .book-grid{grid-template-columns:1fr}
+}
+@media (max-width:860px){
   .video-grid{grid-template-columns:1fr}
   .videos{grid-template-columns:1fr}
 }
@@ -253,6 +256,7 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
   .wordmark{font-size:clamp(2rem,calc((100vw - 48px)/7.1),4rem);text-shadow:none}
 }
 @media (max-width:620px){
+  .songs ol{columns:1}
   .band h2{text-align:center}
   .member{flex-basis:100%;text-align:center}
   .avatar{margin-inline:auto}
@@ -421,9 +425,18 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
       <div class="songs">
         <h3>Uit ons repertoire</h3>
         <ol>
-          <li>Wild Horses</li>
-          <li>Why Did You Do It</li>
+          <li>Play That Funky Music <small>Wild Cherry</small></li>
+          <li>Get Lucky <small>Daft Punk ft. Pharrell Williams</small></li>
+          <li>Crazy <small>Gnarls Barkley</small></li>
+          <li>Back To Black <small>Amy Winehouse</small></li>
+          <li>Don’t Start Now <small>Dua Lipa</small></li>
+          <li>Treasure <small>Bruno Mars</small></li>
+          <li>Groove Is in the Heart <small>Deee-Lite</small></li>
+          <li>Kingston, Kingston <small>Lou &amp; The Hollywood Bananas</small></li>
           <li>Seven Nation Army <small>versie Ben l’Oncle Soul</small></li>
+          <li>Wild Horses <small>versie Bishop Briggs</small></li>
+          <li>Why Did You Do It <small>Stretch</small></li>
+          <li>Universal Nation <small>André Brasseur</small></li>
         </ol>
         <p class="more">…en nog veel meer funk, soul en psychedelic rock. De volledige setlist sturen we je graag door.</p>
       </div>
