@@ -83,9 +83,10 @@ ul{padding:0;list-style:none}
 .pills{display:flex;gap:8px}
 .pills a{display:block;white-space:nowrap;padding:.5em 1.15em;border-radius:999px;border:1.5px solid rgba(242,232,211,.55);background:rgba(7,29,34,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);text-decoration:none;font-weight:500;font-size:.98rem;line-height:1.2;transition:background .2s,color .2s,border-color .2s}
 .pills a[aria-current]{border-color:var(--mustard);color:var(--mustard)}
-.pills a:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+/* hover effects only on devices with a mouse: on touchscreens a tapped link otherwise keeps its hover look until the next tap */
+@media (hover:hover){.pills a:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}}
 .pills .nav-book a{background:var(--mustard);border-color:var(--mustard);color:var(--ink-3)}
-.pills .nav-book a:hover{background:var(--cream);border-color:var(--cream)}
+@media (hover:hover){.pills .nav-book a:hover{background:var(--cream);border-color:var(--cream)}}
 
 /* hero */
 /* the photo starts below the nav bar, so the pills never sit on a face; the strip behind the nav has the scrolled nav's colour.
@@ -101,7 +102,7 @@ ul{padding:0;list-style:none}
 .wordmark{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,4.5vw,4.5rem);line-height:1.02;white-space:nowrap;color:var(--cream);text-shadow:0 2px 28px rgba(0,0,0,.45)}
 .tagline{margin-top:.9rem;font-size:clamp(1.1rem,1.55vw,1.45rem);font-weight:500;color:var(--mustard)}
 .hero-cta{display:inline-block;margin-top:1.6rem;padding:.65em 1.6em;border-radius:999px;background:var(--mustard);color:var(--ink-3);font-weight:600;text-decoration:none;transition:background .2s}
-.hero-cta:hover{background:var(--cream)}
+@media (hover:hover){.hero-cta:hover{background:var(--cream)}}
 @media (prefers-reduced-motion:no-preference){
   .ribbon-in{transform-origin:left;animation:draw .9s .15s cubic-bezier(.2,.7,.2,1) both}
   @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
@@ -120,11 +121,11 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,4.2vw,3.5re
 .yt{all:unset;box-sizing:border-box;position:absolute;inset:0;cursor:pointer;display:block;background:var(--ink-3)}
 .yt:focus-visible{outline:3px solid var(--mustard);outline-offset:-3px}
 .yt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.yt:hover img{transform:scale(1.03)}
+@media (hover:hover){.yt:hover img{transform:scale(1.03)}}
 /* bottom-left, so it never covers the song title printed in the middle of the thumbnails */
 .play{position:absolute;left:16px;bottom:16px;width:60px;height:60px;border-radius:50%;background:var(--cream);box-shadow:0 6px 24px rgba(0,0,0,.4);transition:transform .2s}
 .play::after{content:"";position:absolute;left:24px;top:18px;border-left:19px solid var(--teal-deep);border-top:12px solid transparent;border-bottom:12px solid transparent}
-.yt:hover .play{transform:scale(1.08)}
+@media (hover:hover){.yt:hover .play{transform:scale(1.08)}}
 .yt-iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
 /* agenda */
@@ -145,10 +146,10 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,4.2vw,3.5re
 .where-link{position:relative;display:inline-flex;align-items:center;gap:6px;padding:1px 0;color:inherit;text-decoration:none;border-bottom:1px dotted rgba(169,189,184,.6);transition:color .2s,border-color .2s}
 .where-link svg{flex:none}
 .where-link::after{content:'';position:absolute;inset:-10px -6px}
-.where-link:hover{color:var(--mustard);border-bottom-color:var(--mustard)}
+@media (hover:hover){.where-link:hover{color:var(--mustard);border-bottom-color:var(--mustard)}}
 .priv{display:inline-block;margin-left:.6rem;padding:.05em .7em;border:1.5px solid var(--olive);border-radius:999px;font-size:.85rem;font-weight:500;color:var(--mist);vertical-align:.12em}
 .tix{padding:.55em 1.3em;border-radius:999px;background:var(--mustard);color:var(--ink-3);font-weight:600;text-decoration:none;transition:background .2s}
-.tix:hover{background:var(--cream)}
+@media (hover:hover){.tix:hover{background:var(--cream)}}
 .state{display:flex;align-items:center;gap:18px;padding:26px 0;border-top:1px solid rgba(242,232,211,.18);border-bottom:1px solid rgba(242,232,211,.18);font-size:1.2rem}
 .state .badge{width:44px;height:44px}
 .state .sub{display:block;color:var(--muted);font-size:1rem}
@@ -173,7 +174,7 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,4.2vw,3.5re
 .ph{all:unset;box-sizing:border-box;display:block;width:100%;margin:0 0 14px;cursor:zoom-in;break-inside:avoid;background:var(--ink-2);border-radius:4px;overflow:hidden}
 .ph:focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
 .ph img{display:block;width:100%;height:auto;min-height:120px;transition:transform .4s,opacity .3s}
-.ph:hover img{transform:scale(1.03)}
+@media (hover:hover){.ph:hover img{transform:scale(1.03)}}
 
 /* booking */
 .book{background:var(--ink-2)}
@@ -181,15 +182,21 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,4.2vw,3.5re
 .book h2{margin-bottom:clamp(20px,3vw,32px)}
 .book-lead{font-size:clamp(1.3rem,2.2vw,1.9rem);line-height:1.3;font-weight:300;max-width:24em}
 .book-text{margin-top:1rem;color:var(--muted);max-width:36em}
-.stats{display:flex;gap:44px;margin-top:28px}
+.stats{display:flex;flex-wrap:wrap;gap:16px clamp(24px,6vw,44px);margin-top:28px}
 .stats li{display:flex;flex-direction:column}
 .stats b{font-family:var(--display);font-weight:400;font-size:2.6rem;line-height:1;color:var(--mustard)}
+/* Blippo has no ∞, so it is drawn with the same stroke weight (.19em) and the same top and height as the digits */
+.stats .inf{display:block;width:1.15em;height:.67em;margin:.16em 0 .17em}
 .stats span{margin-top:6px;color:var(--muted);font-size:.95rem}
-.book-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:32px}
-.book-cta .btn{padding:.7em 1.7em;border-radius:999px;background:var(--mustard);color:var(--ink-3);font-weight:600;text-decoration:none;transition:background .2s}
-.book-cta .btn:hover{background:var(--cream)}
-.book-cta .alt{color:var(--muted);font-size:.95rem;overflow-wrap:anywhere}
-.book-cta .alt a{color:var(--cream)}
+/* contact: label left, value right; on phones the label sits above the value */
+.contact{margin:36px 0 0;max-width:30em}
+.contact div{display:grid;grid-template-columns:6.5rem 1fr;align-items:baseline;gap:2px 16px;padding:14px 0;border-top:1px solid rgba(242,232,211,.14)}
+.contact div:last-child{border-bottom:1px solid rgba(242,232,211,.14)}
+.contact dt{color:var(--muted);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.contact dd{margin:0;font-size:1.2rem;font-weight:500;line-height:1.35}
+.contact a{color:var(--cream);text-decoration:none;background:linear-gradient(var(--mustard),var(--mustard)) 0 100%/0 2px no-repeat;transition:color .2s,background-size .25s}
+.contact a:focus-visible{color:var(--mustard);background-size:100% 2px}
+@media (hover:hover){.contact a:hover{color:var(--mustard);background-size:100% 2px}}
 .songs{padding:28px 30px 26px;border:1.5px solid rgba(242,232,211,.18);border-radius:10px;background:rgba(7,29,34,.35)}
 .songs h3{font-family:var(--display);font-weight:400;font-size:1.6rem;line-height:1.1}
 /* two columns of songs (one on phones); each song: number, title, artist on the line below */
@@ -204,7 +211,7 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,4.2vw,3.5re
 .lb[hidden]{display:none}
 .lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:3px}
 .lb button{all:unset;position:absolute;cursor:pointer;width:48px;height:48px;border-radius:50%;background:rgba(242,232,211,.14);color:var(--cream);display:flex;align-items:center;justify-content:center;font-size:2rem;line-height:1;transition:background .2s}
-.lb button:hover{background:rgba(242,232,211,.3)}
+@media (hover:hover){.lb button:hover{background:rgba(242,232,211,.3)}}
 .lb button:focus-visible{outline:3px solid var(--mustard)}
 .lb .lb-close{top:14px;right:14px}
 .lb .lb-prev{left:10px;top:50%;margin-top:-24px}
@@ -217,7 +224,7 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
 .foot .brand-name{font-size:1.5rem}
 .socials{display:flex;gap:10px;flex-wrap:wrap}
 .socials a{padding:.45em 1.1em;border-radius:999px;border:1.5px solid rgba(242,232,211,.5);text-decoration:none;font-weight:500;transition:background .2s,color .2s}
-.socials a:hover{background:var(--cream);color:var(--ink)}
+@media (hover:hover){.socials a:hover{background:var(--cream);color:var(--ink)}}
 .copy{width:100%;margin-top:4px;color:var(--muted);font-size:.9rem}
 
 /* responsive */
@@ -266,6 +273,8 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
   .photos{column-count:2;column-gap:10px}
   .ph{margin-bottom:10px}
   .pills a{padding:.45em .95em;font-size:.92rem}
+  .contact div{grid-template-columns:1fr}
+  .contact dd{font-size:1.1rem}
 }
 @media (max-width:360px){
   .pills{gap:6px}
@@ -418,11 +427,14 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
         <ul class="stats">
           <li><b>1u30</b><span>live show</span></li>
           <li><b>7</b><span>muzikanten</span></li>
+          <li><b><svg class="inf" viewBox="0 0 115 67" aria-hidden="true"><path d="M57.5 33.5C66.5 24.5 68.3 9.5 81.5 9.5C94.7 9.5 105.5 20.3 105.5 33.5C105.5 46.7 94.7 57.5 81.5 57.5C68.3 57.5 66.5 42.5 57.5 33.5C48.5 24.5 46.7 9.5 33.5 9.5C20.3 9.5 9.5 20.3 9.5 33.5C9.5 46.7 20.3 57.5 33.5 57.5C46.7 57.5 48.5 42.5 57.5 33.5Z" fill="none" stroke="currentColor" stroke-width="19" stroke-linejoin="round"/></svg><span class="sr-only">oneindig</span></b><span>groove</span></li>
         </ul>
-        <p class="book-cta">
-          <a class="btn" href="mailto:dysphunktionalband@gmail.com?subject=Boeking%20Dysphunktional&body=Hallo%20Dysphunktional%2C%0A%0AWe%20willen%20jullie%20graag%20boeken.%0A%0ADatum%3A%20%0ALocatie%3A%20%0ASoort%20feest%3A%20%0ATelefoon%3A%20%0A">Mail ons</a>
-          <span class="alt">of rechtstreeks naar <a href="mailto:dysphunktionalband@gmail.com">dysphunktionalband@gmail.com</a></span>
-        </p>
+        <dl class="contact">
+          <div>
+            <dt>E-mail</dt>
+            <dd><a href="mailto:dysphunktionalband@gmail.com?subject=Boeking%20Dysphunktional&body=Hallo%20Dysphunktional%2C%0A%0AWe%20willen%20jullie%20graag%20boeken.%0A%0ADatum%3A%20%0ALocatie%3A%20%0ASoort%20feest%3A%20%0ATelefoon%3A%20%0A">dysphunktionalband@gmail.com</a></dd>
+          </div>
+        </dl>
       </div>
       <div class="songs">
         <h3>Uit ons repertoire</h3>
@@ -518,18 +530,21 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
   if (document.fonts) document.fonts.ready.then(fitWordmark);
   window.addEventListener('resize', fitWordmark);
 
-  /* ---------- the nav pill of the section crossing the middle of the screen lights up ---------- */
-  if ('IntersectionObserver' in window){
-    var pillFor = {};
-    document.querySelectorAll('.pills a').forEach(function(a){ pillFor[a.getAttribute('href').slice(1)] = a; });
-    var spy = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        var a = pillFor[en.target.id];
-        if (en.isIntersecting) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
-      });
-    }, {rootMargin: '-49% 0px -50% 0px'});
-    Object.keys(pillFor).forEach(function(id){ spy.observe(document.getElementById(id)); });
+  /* ---------- the nav pill of the section you're reading lights up: the last section whose top has passed 40% of the
+     screen height, and the last section once the page is scrolled to the bottom. (Not "the section crossing the middle
+     of the screen": a short section, like an agenda with one show, ends above the middle right after you tap its pill,
+     which would light up the next pill instead.) ---------- */
+  var spyLinks = [].slice.call(document.querySelectorAll('.pills a'));
+  var spySections = spyLinks.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+  function spy(){
+    var line = window.innerHeight * .4, cur = -1;
+    spySections.forEach(function(s, i){ if (s.getBoundingClientRect().top <= line) cur = i; });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) cur = spySections.length - 1;
+    spyLinks.forEach(function(a, i){ if (i === cur) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
   }
+  window.addEventListener('scroll', spy, {passive:true});
+  window.addEventListener('resize', spy);
+  spy();
 
   /* ---------- video facades: a thumbnail until clicked, then the YouTube player ---------- */
   /* Only one video plays at a time. The players talk to the page through YouTube's postMessage protocol
