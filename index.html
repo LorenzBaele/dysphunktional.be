@@ -490,21 +490,24 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
   /* ---------- config ---------- */
   var SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT6ql9eeunAAc-XCw5Gll8KzgT7UqEOuurBkcigpWr9mu80wfpu3tCT8HxdJNF_pJ3NhY4ikf2C7sfT/pub?gid=293892753&single=true&output=csv';
   var BAND = 'dysphunktional';
-  var IMG_BASE = 'https://ik.imagekit.io/mp8tkehgc/vibe-platform-production/0affd408-edd6-4158-9b9c-625ce00d04b3/images/';
-  // [file, height when 720 wide]
+  // gallery photos live in img/gallery/ as <name>-400.jpg, -720.jpg, -1080.jpg (grid, by width) and <name>-xl.jpg
+  // (lightbox, fits 2048x1536). The order keeps the 3 desktop columns and the 2 phone columns about equally long.
+  var IMG_BASE = 'img/gallery/';
+  // [name, height when 720 wide]
   var PHOTOS = [
-    ['3286bd0f-6157-436a-a893-dc1369a88f20.jpg', 960],
-    ['62623705-4a85-4969-9c2b-465f5bf709b7.jpg', 960],
-    ['16f26116-ca13-465c-a9db-6c160f977216.jpg', 1279],
-    ['75c2f4b3-ca38-40ff-b692-169b9f28622f.JPG', 1076],
-    ['47d9f960-bef2-4e06-bc21-963cfdf63b7f.jpeg', 960],
-    ['8d86e190-2169-4a42-a4e5-8b36d54af458.jpg', 960],
-    ['a1a1e94d-0fa5-455f-8328-6b32e990fa71.jpg', 542],
-    ['40936ba3-0894-4b67-ad6f-b87e1023d92a.jpg', 480],
-    ['fdb637a3-ab73-4432-ab55-76f2304447be.JPG', 480],
-    ['13243848-8174-4566-aaa3-c523af559960.jpg', 971],
-    ['483dca85-a23b-4a0b-91b9-cdd734d36021.jpg', 538],
-    ['96501012-75c7-401b-87c7-106a6320d89e.jpeg', 540]
+    ['groepsfoto-studio', 538],
+    ['gitaar-tapijt', 1280],
+    ['trompet-blauw', 480],
+    ['podium-rood', 540],
+    ['zang-zwartwit', 1080],
+    ['toetsen-koptelefoon', 480],
+    ['drums-terras', 448],
+    ['trompet-trombone', 960],
+    ['gitaar-blauw', 480],
+    ['bas-zonnebril', 480],
+    ['zaal-zwartwit', 960],
+    ['toetsen-terras', 480],
+    ['sax-blauw', 466]
   ];
   var MONTHS = ['jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec'];
   var DAYS = ['zo','ma','di','wo','do','vr','za'];
@@ -721,14 +724,13 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
     b.type = 'button';
     b.setAttribute('aria-label', 'Foto ' + (i+1) + ' van ' + PHOTOS.length + ' vergroten');
     var img = new Image();
-    var url = IMG_BASE + name + '?tr=w-';
-    img.src = url + '720';
-    img.srcset = url + '400 400w, ' + url + '720 720w, ' + url + '1080 1080w';
+    var url = IMG_BASE + name + '-';
+    img.src = url + '720.jpg';
+    img.srcset = url + '400.jpg 400w, ' + url + '720.jpg 720w, ' + url + '1080.jpg 1080w';
     img.sizes = '(max-width:1000px) 50vw, 390px';
     img.width = 720; img.height = photo[1];
     img.alt = '';
     img.loading = 'lazy';
-    img.referrerPolicy = 'no-referrer';
     img.onerror = function(){ b.hidden = true; };
     b.appendChild(img);
     b.addEventListener('click', function(){ openLb(i); });
@@ -738,12 +740,11 @@ footer{background:var(--ink-3);padding-bottom:max(32px,env(safe-area-inset-botto
   var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbCount = document.getElementById('lb-count'), cur = 0, lastFocus = null;
   function show(i){
     cur = (i + PHOTOS.length) % PHOTOS.length;
-    lbImg.referrerPolicy = 'no-referrer';
-    lbImg.src = IMG_BASE + PHOTOS[cur][0] + '?tr=c-at_max,w-2048,h-1536';
+    lbImg.src = IMG_BASE + PHOTOS[cur][0] + '-xl.jpg';
     lbImg.alt = 'Foto ' + (cur+1) + ' van ' + PHOTOS.length;
     lbCount.textContent = (cur+1) + ' / ' + PHOTOS.length;
     // fetch the photos on either side now, so the next swipe or click shows them instantly
-    [cur+1, cur-1].forEach(function(j){ var pre = new Image(); pre.referrerPolicy = 'no-referrer'; pre.src = IMG_BASE + PHOTOS[(j + PHOTOS.length) % PHOTOS.length][0] + '?tr=c-at_max,w-2048,h-1536'; });
+    [cur+1, cur-1].forEach(function(j){ new Image().src = IMG_BASE + PHOTOS[(j + PHOTOS.length) % PHOTOS.length][0] + '-xl.jpg'; });
   }
   function openLb(i){
     lastFocus = document.activeElement;
